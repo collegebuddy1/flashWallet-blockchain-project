@@ -1,0 +1,86 @@
+ <mat-card>
+   <mat-card-header>
+     <mat-card-title class="title">
+       ICO SALE
+     </mat-card-title>
+   </mat-card-header>
+   <mat-card-content>
+
+     <mat-card class="card" *ngIf="tokensAvailable === 0 && admin">
+       <mat-card-header>
+         <mat-card-title>
+           Start Ico
+         </mat-card-title>
+       </mat-card-header>
+       <mat-card-content class="dashboard-card-content-send">
+         <div fxLayout="column" class="padding-left5">
+           <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="flex-start">
+             <div fxFlex="1 1 80%">
+               <mat-form-field>
+                 <input type="text" matInput id="tokens" placeholder="Tokens Availables" [(ngModel)]="tokensAvailable"
+                   readonly>
+               </mat-form-field>
+             </div>
+           </div>
+
+         </div>
+       </mat-card-content>
+       <mat-card-footer>
+         <mat-card-actions>
+           <div fxFlex></div>
+           <button mat-raised-button id="send" color="primary" class="action-button" (click)="startIco()">
+             <mat-icon>play_circle_outline</mat-icon>Start ICO
+           </button>
+         </mat-card-actions>
+       </mat-card-footer>
+     </mat-card>
+
+     <mat-card class="card">
+       <mat-card-header>
+         <mat-card-title>
+           Buy
+         </mat-card-title>
+
+       </mat-card-header>
+       <mat-card-content class="dashboard-card-content-send">
+         <div fxLayout="column" class="padding-left5">
+
+
+           <div fxLayout="row" class="progressBar" fxLayoutAlign="flex-start">
+             <div fxFlex="1 1 80%">
+               <mat-progress-bar mode="determinate" [value]="progressPercent"></mat-progress-bar>
+             </div>
+             <div fxFlex="1 1 10%">
+               {{tokensAvailable | number:'1.0-0'}}
+             </div>
+           </div>
+
+           <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="flex-start" fxLayoutGap="10px">
+             <div fxFlex="1 1 40%">
+               <mat-form-field>
+                 <input type="text" matInput id="amount" placeholder="Amount" [(ngModel)]="numberOfTokens"
+                   (change)="calculateEther()">
+               </mat-form-field>
+             </div>
+             <div fxFlex="1 1 40%">
+               <mat-form-field>
+                 <input type="text" matInput id="ether" placeholder="Ether" [(ngModel)]="etherAmount" readonly>
+               </mat-form-field>
+             </div>
+
+           </div>
+
+         </div>
+       </mat-card-content>
+       <mat-card-footer>
+         <mat-card-actions>
+           <div fxFlex></div>
+           <button mat-raised-button id="send" color="primary" class="action-button" (click)="buyTokens()">
+             <mat-icon>monetization_on</mat-icon>Buy
+           </button>
+         </mat-card-actions>
+       </mat-card-footer>
+     </mat-card>
+   </mat-card-content>
+
+ </mat-card>

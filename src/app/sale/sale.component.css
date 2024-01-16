@@ -1,0 +1,22 @@
+ 
+   
+
+.progressBar {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+
+}
+
+.currentPrice {
+  background: #cacaca;
+  box-shadow: none;
+  font: 1rem;
+  
+}
+
+ 
+.bold {
+  font-weight: bold;
+  margin: .2rem;
+}
+ 
